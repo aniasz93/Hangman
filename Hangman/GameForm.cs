@@ -26,10 +26,35 @@ namespace Hangman
         private void okBtn_Click(object sender, EventArgs e)
         {
             // add letters to used letters list
-            string letter;
+            string letter = letterTB.Text;
+            bool isLetter = false;
 
-            letter = letterTB.Text;
-            usedLetterLabel.Text += " " + letter;
+            int i = 0;
+            do
+            {
+                // check if the letter were used already
+                if (usedLetterLabel.Text.Length != 0)
+                {
+                    if (letter != usedLetterLabel.Text.Substring(i, 1))
+                    {
+                        i += 2;
+                    }
+                    else
+                    {
+                        isLetter = true;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            } while (i < usedLetterLabel.Text.Length && !isLetter);
+
+            if (!isLetter)
+            {
+                usedLetterLabel.Text += letter + " ";
+            }
+
         }
 
         // set stopwatch
