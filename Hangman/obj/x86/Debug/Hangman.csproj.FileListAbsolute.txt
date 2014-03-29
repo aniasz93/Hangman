@@ -1,0 +1,13 @@
+E:\Dropbox\My DB\Projekty\Hangman\Hangman\bin\Debug\Hangman.exe
+E:\Dropbox\My DB\Projekty\Hangman\Hangman\bin\Debug\Hangman.pdb
+E:\Dropbox\My DB\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.OpenForm.resources
+E:\Dropbox\My DB\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.Properties.Resources.resources
+E:\Dropbox\My DB\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.csproj.GenerateResource.Cache
+E:\Dropbox\My DB\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.exe
+E:\Dropbox\My DB\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.pdb
+E:\Dropbox\My DB\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.InstrForm.resources
+E:\Dropbox\My DB\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.RankForm.resources
+E:\Dropbox\My DB\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.NameForm.resources
+E:\Dropbox\My DB\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.GameOptionsForm.resources
+E:\Dropbox\My DB\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.csprojResolveAssemblyReference.cache
+E:\Dropbox\My DB\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.GameForm.resources
