@@ -18,7 +18,7 @@ namespace Hangman
 
         private void easyBtn_Click(object sender, EventArgs e)
         {
-            string fileName = @"E:\Dropbox\My DB\Projekty\Hangman\EasyRank.txt";
+            string fileName = @"D:\Projekty\Hangman\Rankings\EasyRank.txt";
 
             if (System.IO.File.Exists(fileName))
             {
@@ -34,7 +34,7 @@ namespace Hangman
 
         private void mediumBtn_Click(object sender, EventArgs e)
         {
-            string fileName = @"E:\Dropbox\My DB\Projekty\Hangman\MediumRank.txt";
+            string fileName = @"D:\Projekty\Hangman\Rankings\MediumRank.txt";
 
             if (System.IO.File.Exists(fileName))
             {
@@ -50,7 +50,7 @@ namespace Hangman
 
         private void hardBtn_Click(object sender, EventArgs e)
         {
-            string fileName = @"E:\Dropbox\My DB\Projekty\Hangman\HardRank.txt";
+            string fileName = @"D:\Projekty\Hangman\Rankings\HardRank.txt";
 
             if (System.IO.File.Exists(fileName))
             {

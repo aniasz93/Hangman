@@ -154,10 +154,10 @@
             this.cartoonTitlesRadioBtn.AutoSize = true;
             this.cartoonTitlesRadioBtn.Location = new System.Drawing.Point(6, 57);
             this.cartoonTitlesRadioBtn.Name = "cartoonTitlesRadioBtn";
-            this.cartoonTitlesRadioBtn.Size = new System.Drawing.Size(90, 17);
+            this.cartoonTitlesRadioBtn.Size = new System.Drawing.Size(85, 17);
             this.cartoonTitlesRadioBtn.TabIndex = 2;
             this.cartoonTitlesRadioBtn.TabStop = true;
-            this.cartoonTitlesRadioBtn.Text = "cartoons titles";
+            this.cartoonTitlesRadioBtn.Text = "cartoon titles";
             this.cartoonTitlesRadioBtn.UseVisualStyleBackColor = true;
             // 
             // cartoonCharsRadioBtn

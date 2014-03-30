@@ -25,14 +25,56 @@ namespace Hangman
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            // add letters to used letters list
             string letter = letterTB.Text;
+            bool isAddedLetter = IsLetterAddedToUsedLetterList(letter);
+
+            if (!isAddedLetter)
+            {
+                usedLetterLabel.Text += letter + " ";
+            }
+        }
+
+        // set stopwatch
+        private static System.Timers.Timer sec = null;
+        private static DateTime time = new DateTime();
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+            // name choosen category
+            string category = categoryLabel.Text = GameOptionsForm.Category;
+
+            // draw word
+            string wordToGuess = DrawWord(category);
+            guessingWordLabel.Text = wordToGuess;
+
+            // stopwatch
+            if (sec == null)
+            {
+                sec = new System.Timers.Timer(1000);
+                sec.SynchronizingObject = this;
+                sec.Elapsed += new System.Timers.ElapsedEventHandler(SecTick);
+            }
+            
+            sec.Start();
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void init()
+        {
+            categoryLabel.Text = GameOptionsForm.Category;
+        }
+
+        // checking if letters was added to used letters list
+        private bool IsLetterAddedToUsedLetterList(string letter)
+        {
             bool isLetter = false;
 
             int i = 0;
             do
             {
-                // check if the letter were used already
                 if (usedLetterLabel.Text.Length != 0)
                 {
                     if (letter != usedLetterLabel.Text.Substring(i, 1))
@@ -50,40 +92,59 @@ namespace Hangman
                 }
             } while (i < usedLetterLabel.Text.Length && !isLetter);
 
-            if (!isLetter)
+            return isLetter;
+        }
+
+        // drawing letter to guessing
+        private string DrawWord(string cat)
+        {
+            string fileName = @"D:\Projekty\Hangman\Categories\" + cat + ".txt";
+            List <string> words = new List<string>();
+            string word = "";
+            Random rand = new Random();
+            int wordNumb = 0;
+
+            int i = 0;
+
+            if (System.IO.File.Exists(fileName))
             {
-                usedLetterLabel.Text += letter + " ";
+                System.IO.StreamReader objReader = new System.IO.StreamReader(fileName);
+                
+                do
+                {
+                    words.Add(objReader.ReadLine());
+                    i++;
+                } while (objReader.Peek() != -1);
+
+                objReader.Close();
+            }
+            else
+            {
+                MessageBox.Show("File not found " + fileName);
             }
 
-        }
+            wordNumb = rand.Next(i);
 
-        // set stopwatch
-        private static System.Timers.Timer sek = null;
-        private static DateTime time = new DateTime();
-
-        private void GameForm_Load(object sender, EventArgs e)
-        {
-            if (sek == null)
+            int j = 0;
+            do
             {
-                sek = new System.Timers.Timer(1000);
-                sek.SynchronizingObject = this;
-                sek.Elapsed += new System.Timers.ElapsedEventHandler(sek_Tick);
-            }
-            
-            sek.Start();
+                if (j == wordNumb)
+                {
+                    word = words[j];
+                    break;
+                }
+                else
+                {
+                    j++;
+                }
+            } while (j < i);
+
+            return word;
         }
 
-        #endregion
-
-        #region Methods
-
-        private void init()
-        {
-            categoryLabel.Text = GameOptionsForm.Category;
-        }
 
         // stopwatch ticking
-        private void sek_Tick(object sender, System.Timers.ElapsedEventArgs e)
+        private void SecTick(object sender, System.Timers.ElapsedEventArgs e)
         {
             time = time.AddMilliseconds(((System.Timers.Timer)sender).Interval);
             this.timeLabel.Text = time.ToLongTimeString();
