@@ -84,6 +84,7 @@
     <Compile Include="RankForm2.Designer.cs">
       <DependentUpon>RankForm2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Word.cs" />
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
     </EmbeddedResource>
