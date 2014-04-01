@@ -31,45 +31,26 @@ namespace Hangman
             return isLetter;
         }
 
-        //public bool IsLetterOnUsedLettersList(string letter, Label usedLetters, string wordToGuess)
-        //{
-        //    bool isLetter = false;
+        // checking if letter is in word
+        public bool IsLetterUsedInWord(string wordToGuess, string letter)
+        {
+            bool isLetter = false;
 
-        //    int i = 0;
-        //    do
-        //    {
-        //        if (wordToGuess.Substring(i, 1) != letter)
-        //        {
-        //            i++;
-        //        }
-        //        else
-        //        {
-        //            isLetter = true;
-        //        }
-        //    } while (i < wordToGuess.Count() && !isLetter);
+            int i = 0;
+            do
+            {
+                if (wordToGuess.Substring(i, 1) != letter)
+                {
+                    i++;
+                }
+                else
+                {
+                    isLetter = true;
+                }
+            } while (i < wordToGuess.Count() && !isLetter);
 
-        //    int j = 0;
-        //    while (j < usedLetters.Text.Length && !isLetter)
-        //    {
-        //        if (usedLetters.Text.Length != 0)
-        //        {
-        //            if (usedLetters.Text.Substring(j, 1) != letter)
-        //            {
-        //                j += 2;
-        //            }
-        //            else
-        //            {
-        //                isLetter = true;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            break;
-        //        }
-        //    }
-
-        //    return isLetter;
-        //}
+            return isLetter;
+        }
 
         // drawing letter to guessing
         public string DrawWord(string cat)
@@ -115,7 +96,7 @@ namespace Hangman
                 }
             } while (j < i);
 
-            return word;
+            return word.ToLower();
         }
 
         // replace guessing word with '_'
@@ -139,28 +120,38 @@ namespace Hangman
         }
 
         // discovery of letters
-        public string DiscoveryLetters(string hiddenWord, string wordToGuess, string letter, bool isLetterUsed, Label usedLetterLabel)
+        public string DiscoveryLetters(string hiddenWord, string wordToGuess, string letter)
         {
-            if (isLetterUsed)
-            {
-                return hiddenWord;
-            }
+            string newWord = "";
+            List<int> placesOfLetter = new List<int>();
 
-            for (int i = 0; i < wordToGuess.Count(); i++)
+            int i = 0;
+            while (i < wordToGuess.Count())
             {
                 if (wordToGuess.Substring(i, 1) == letter)
                 {
-                    hiddenWord = hiddenWord.Replace(hiddenWord.Substring(i, 1), letter);
-                    isLetterUsed = true;
+                    placesOfLetter.Add(i);
+                }
+                else
+                {
+                    placesOfLetter.Add(-1);
+                }
+                i++;
+            }
+
+            for (int j = 0; j < wordToGuess.Count(); j++)
+            {
+                if (j != placesOfLetter[j])
+                {
+                    newWord += hiddenWord[j];
+                }
+                else
+                {
+                    newWord += letter;
                 }
             }
 
-            if (!isLetterUsed)
-            {
-                usedLetterLabel.Text += letter + " ";
-            }
-
-            return hiddenWord;
+            return newWord;
         }
 
         #endregion

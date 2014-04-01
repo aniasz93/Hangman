@@ -34,12 +34,28 @@ namespace Hangman
         private void okBtn_Click(object sender, EventArgs e)
         {
             string letter = letterTB.Text;
+            letter.ToLower();
+
+            bool isLetterUsed = word.IsLetterUsedAlready(letters, letter);
+            bool isLetterInWord = false;
+
             letters.Add(letter);
+            
+            if (!isLetterUsed)
+            {
+                isLetterInWord = word.IsLetterUsedInWord(wordToGuess, letter);
 
-            bool isAddedLetter = word.IsLetterUsedAlready(letters, letter);
+                if (isLetterInWord)
+                {
+                    hiddenWord = word.DiscoveryLetters(hiddenWord, wordToGuess, letter);
+                }
+                else
+                {
+                    usedLetterLabel.Text += letter + ' ';
+                }
 
-            hiddenWord = word.DiscoveryLetters(hiddenWord, wordToGuess, letter, isAddedLetter, usedLetterLabel);
-            guessingWordLabel.Text = hiddenWord;
+                guessingWordLabel.Text = hiddenWord;
+            }
         }
 
         // set stopwatch
