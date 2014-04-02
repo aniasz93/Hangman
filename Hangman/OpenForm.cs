@@ -11,14 +11,24 @@ namespace Hangman
 {
     public partial class OpenForm : Form
     {
+        #region Variables
+
         InstrForm instrForm = new InstrForm();
         RankForm rankForm = new RankForm();
         NameForm nameForm = new NameForm();
+
+        #endregion
+
+        #region Constructors
 
         public OpenForm()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Buttons
 
         private void newBtn_Click(object sender, EventArgs e)
         {
@@ -48,5 +58,7 @@ namespace Hangman
         {
             Application.Exit();
         }
+
+        #endregion
     }
 }

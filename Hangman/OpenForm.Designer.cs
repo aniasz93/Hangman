@@ -33,11 +33,7 @@
             this.instrBtn = new System.Windows.Forms.Button();
             this.rankBtn = new System.Windows.Forms.Button();
             this.quitBtn = new System.Windows.Forms.Button();
-            this.langLabel = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.groupBox1.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // newBtn
@@ -94,47 +90,15 @@
             this.quitBtn.UseVisualStyleBackColor = true;
             this.quitBtn.Click += new System.EventHandler(this.quitBtn_Click);
             // 
-            // langLabel
+            // label1
             // 
-            this.langLabel.AutoSize = true;
-            this.langLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.langLabel.Location = new System.Drawing.Point(50, 30);
-            this.langLabel.Name = "langLabel";
-            this.langLabel.Size = new System.Drawing.Size(72, 16);
-            this.langLabel.TabIndex = 5;
-            this.langLabel.Text = "Language:";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(120, 10);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(104, 57);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(7, 34);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(58, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "english";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 10);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(52, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "polski";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(68, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(160, 31);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "HANGMAN";
             // 
             // OpenForm
             // 
@@ -142,8 +106,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(284, 362);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.langLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.quitBtn);
             this.Controls.Add(this.rankBtn);
             this.Controls.Add(this.instrBtn);
@@ -151,8 +114,6 @@
             this.Controls.Add(this.newBtn);
             this.Name = "OpenForm";
             this.Text = "Hangman";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,10 +126,7 @@
         private System.Windows.Forms.Button instrBtn;
         private System.Windows.Forms.Button rankBtn;
         private System.Windows.Forms.Button quitBtn;
-        private System.Windows.Forms.Label langLabel;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

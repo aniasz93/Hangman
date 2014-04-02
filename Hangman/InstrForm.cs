@@ -11,16 +11,32 @@ namespace Hangman
 {
     public partial class InstrForm : Form
     {
+        #region Variables
+
+        FilesOperations file = new FilesOperations();
+
+        #endregion
+
+        #region Constructors
+
         public InstrForm()
         {
             InitializeComponent();
             init();
         }
 
+        #endregion
+
+        #region Buttons
+
         private void returnBtn_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }
+
+        #endregion
+
+        #region Methods
 
         private void init()
         {
@@ -29,18 +45,9 @@ namespace Hangman
 
         private void LoadInstruction()
         {
-            string fileName = @"E:\Dropbox\My DB\Projekty\Hangman\Instruction.txt";
-
-            if (System.IO.File.Exists(fileName))
-            {
-                System.IO.StreamReader objReader = new System.IO.StreamReader(fileName);
-                instrTB.Text = objReader.ReadToEnd();
-                objReader.Close();
-            }
-            else
-            {
-                MessageBox.Show("File not found " + fileName);
-            }
+            file.OpenFile(@"D:\Projekty\Hangman\Instruction.txt", instrTB);
         }
+
+        #endregion
     }
 }

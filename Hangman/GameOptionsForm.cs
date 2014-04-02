@@ -11,13 +11,13 @@ namespace Hangman
 {
     public partial class GameOptionsForm : Form
     {
-        GameForm gameForm = new GameForm();
-
         #region Variables
 
-        int lang = 0;
-        static string category = "";
-        string difficulty = "";
+        GameForm gameForm = new GameForm();
+
+        private int lang = 0;
+        private static string category = "";
+        private static string difficulty = "";
 
         #endregion
 
@@ -35,7 +35,7 @@ namespace Hangman
             set { category = value; }
         }
 
-        public string Difficulty
+        public static string Difficulty
         {
             get { return difficulty; }
             set { difficulty = value; }
@@ -76,7 +76,7 @@ namespace Hangman
             }
             else
             {
-                MessageBox.Show("You must choose language of the password.");
+                MessageBox.Show("You must choose language of the word.");
             }
 
             // checking what category the player want
@@ -97,10 +97,10 @@ namespace Hangman
                 isCategory = true;
                 category = cartoonTitlesRadioBtn.Text;
             }
-            else if (mathRadioBtn.Checked)
+            else if (mathsRadioBtn.Checked)
             {
                 isCategory = true;
-                category = mathRadioBtn.Text;
+                category = mathsRadioBtn.Text;
             }
             else
             {
@@ -113,17 +113,17 @@ namespace Hangman
             if (easyRadioBtn.Checked)
             {
                 isDifficulty = true;
-                difficulty = easyRadioBtn.Text;
+                difficulty = "Easy";
             }
             else if (mediumRadioBtn.Checked)
             {
                 isDifficulty = true;
-                difficulty = mediumRadioBtn.Text;
+                difficulty = "Medium";
             }
             else if (hardRadioBtn.Checked)
             {
                 isDifficulty = true;
-                difficulty = hardRadioBtn.Text;
+                difficulty = "Hard";
             }
             else
             {

@@ -11,14 +11,42 @@ namespace Hangman
 {
     public partial class NameForm : Form
     {
-        GameOptionsForm gameOptionsForm = new GameOptionsForm();
-
         #region Variables
 
-        string name = "";
-        int age = 0;
-        string sex = "";
-        int color;
+        GameOptionsForm gameOptionsForm = new GameOptionsForm();
+
+        private static string name = "";
+        private int age = 0;
+        private string sex = "";
+        private int color;
+
+        #endregion
+
+        #region Properties
+
+        public static string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public int Age
+        {
+            get { return age; }
+            set { age = value; }
+        }
+
+        public string Sex
+        {
+            get { return sex; }
+            set { sex = value; }
+        }
+
+        public int Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
 
         #endregion
 
@@ -42,7 +70,6 @@ namespace Hangman
         {
             // check if there is a value in name text box
             bool isName = false;
-
             name = nameTB.Text;
             
             if (name == "")
@@ -122,34 +149,6 @@ namespace Hangman
                 this.Hide();
                 gameOptionsForm.ShowDialog();
             }
-        }
-
-        #endregion
-
-        #region Properties
-
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        public int Age
-        {
-            get { return age; }
-            set { age = value; }
-        }
-
-        public string Sex
-        {
-            get { return sex; }
-            set { sex = value; }
-        }
-
-        public int Color
-        {
-            get { return color; }
-            set { color = value; }
         }
 
         #endregion

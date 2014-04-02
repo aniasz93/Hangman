@@ -36,7 +36,7 @@
             this.polishRadioBtn = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.mathRadioBtn = new System.Windows.Forms.RadioButton();
+            this.mathsRadioBtn = new System.Windows.Forms.RadioButton();
             this.cartoonTitlesRadioBtn = new System.Windows.Forms.RadioButton();
             this.cartoonCharsRadioBtn = new System.Windows.Forms.RadioButton();
             this.colorsRadioBtn = new System.Windows.Forms.RadioButton();
@@ -59,7 +59,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 39);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Choose language\r\nof the\r\npassword";
+            this.label1.Text = "Choose language\r\nof the\r\nword";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // returnBtn
@@ -128,7 +128,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.mathRadioBtn);
+            this.groupBox2.Controls.Add(this.mathsRadioBtn);
             this.groupBox2.Controls.Add(this.cartoonTitlesRadioBtn);
             this.groupBox2.Controls.Add(this.cartoonCharsRadioBtn);
             this.groupBox2.Controls.Add(this.colorsRadioBtn);
@@ -138,16 +138,16 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             // 
-            // mathRadioBtn
+            // mathsRadioBtn
             // 
-            this.mathRadioBtn.AutoSize = true;
-            this.mathRadioBtn.Location = new System.Drawing.Point(6, 80);
-            this.mathRadioBtn.Name = "mathRadioBtn";
-            this.mathRadioBtn.Size = new System.Drawing.Size(79, 17);
-            this.mathRadioBtn.TabIndex = 3;
-            this.mathRadioBtn.TabStop = true;
-            this.mathRadioBtn.Text = "mathematic";
-            this.mathRadioBtn.UseVisualStyleBackColor = true;
+            this.mathsRadioBtn.AutoSize = true;
+            this.mathsRadioBtn.Location = new System.Drawing.Point(6, 80);
+            this.mathsRadioBtn.Name = "mathsRadioBtn";
+            this.mathsRadioBtn.Size = new System.Drawing.Size(84, 17);
+            this.mathsRadioBtn.TabIndex = 3;
+            this.mathsRadioBtn.TabStop = true;
+            this.mathsRadioBtn.Text = "mathematics";
+            this.mathsRadioBtn.UseVisualStyleBackColor = true;
             // 
             // cartoonTitlesRadioBtn
             // 
@@ -283,7 +283,7 @@
         private System.Windows.Forms.RadioButton polishRadioBtn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton mathRadioBtn;
+        private System.Windows.Forms.RadioButton mathsRadioBtn;
         private System.Windows.Forms.RadioButton cartoonTitlesRadioBtn;
         private System.Windows.Forms.RadioButton cartoonCharsRadioBtn;
         private System.Windows.Forms.RadioButton colorsRadioBtn;

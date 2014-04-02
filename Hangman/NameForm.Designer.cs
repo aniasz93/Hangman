@@ -233,7 +233,6 @@
             this.Controls.Add(this.nameTB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "NameForm";
             this.Text = "Name Form";
             this.sexGB.ResumeLayout(false);
             this.sexGB.PerformLayout();

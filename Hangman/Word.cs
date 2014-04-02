@@ -63,6 +63,7 @@ namespace Hangman
 
             int i = 0;
 
+            // adding words to guess to the list
             if (System.IO.File.Exists(fileName))
             {
                 System.IO.StreamReader objReader = new System.IO.StreamReader(fileName);
@@ -82,6 +83,7 @@ namespace Hangman
 
             wordNumb = rand.Next(i);
 
+            // looking for drawn word in list
             int j = 0;
             do
             {
@@ -99,7 +101,7 @@ namespace Hangman
             return word.ToLower();
         }
 
-        // replace guessing word with '_'
+        // replace guessing word with '?'
         public string HideWord(string word)
         {
             int numbOfLetters = word.Count();
@@ -125,6 +127,7 @@ namespace Hangman
             string newWord = "";
             List<int> placesOfLetter = new List<int>();
 
+            // add places where the letter is to the list, when the letter isn't on the place, -1 is added to the list
             int i = 0;
             while (i < wordToGuess.Count())
             {
@@ -139,6 +142,7 @@ namespace Hangman
                 i++;
             }
 
+            // the word is "copied" to new word with changed "?" with the letter if  the one was found
             for (int j = 0; j < wordToGuess.Count(); j++)
             {
                 if (j != placesOfLetter[j])
@@ -152,6 +156,19 @@ namespace Hangman
             }
 
             return newWord;
+        }
+        
+        // check if there is some unguessed letters
+        public bool IsGuessed(string hiddenWord)
+        {
+            for (int i = 0; i < hiddenWord.Count(); i++)
+            {
+                if (hiddenWord[i] == '?')
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         #endregion

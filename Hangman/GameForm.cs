@@ -14,9 +14,18 @@ namespace Hangman
         #region Variables
 
         Word word = new Word();
-        string wordToGuess = "";
-        string hiddenWord = "";
+        FilesOperations file = new FilesOperations();
+
+        private string wordToGuess = "";
+        private string hiddenWord = "";
+        private string endTime = "";
+        private string category = "";
+
         List<string> letters = new List<string>();
+
+        // set stopwatch
+        private static System.Timers.Timer sec = null;
+        private static DateTime time = new DateTime();
 
         #endregion
 
@@ -33,6 +42,7 @@ namespace Hangman
 
         private void okBtn_Click(object sender, EventArgs e)
         {
+            string name = "";
             string letter = letterTB.Text;
             letter.ToLower();
 
@@ -41,10 +51,12 @@ namespace Hangman
 
             letters.Add(letter);
             
+            // check if letter was used already
             if (!isLetterUsed)
             {
                 isLetterInWord = word.IsLetterUsedInWord(wordToGuess, letter);
 
+                // check if letter is in word
                 if (isLetterInWord)
                 {
                     hiddenWord = word.DiscoveryLetters(hiddenWord, wordToGuess, letter);
@@ -56,11 +68,19 @@ namespace Hangman
 
                 guessingWordLabel.Text = hiddenWord;
             }
-        }
 
-        // set stopwatch
-        private static System.Timers.Timer sec = null;
-        private static DateTime time = new DateTime();
+            // check whether the game is over
+            if (word.IsGuessed(hiddenWord))
+            {
+                name = NameForm.Name;
+                endTime = timeLabel.Text;
+                string fileName = @"D:\Projekty\Hangman\Rankings\" + GameOptionsForm.Difficulty + "Rank.txt";
+
+                file.WriteToFile(fileName, name, endTime, category);
+
+                MessageBox.Show(name + ", you WIN!\n You did it in: " + endTime);
+            }
+        }
 
         private void GameForm_Load(object sender, EventArgs e)
         {
@@ -74,9 +94,8 @@ namespace Hangman
 
             sec.Start();
 
-
             // name choosen category
-            string category = categoryLabel.Text = GameOptionsForm.Category;
+            category = categoryLabel.Text = GameOptionsForm.Category;
 
             // draw word
             wordToGuess = word.DrawWord(category);

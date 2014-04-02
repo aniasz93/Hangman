@@ -1,0 +1,5 @@
+- ograniczyæ iloœæ prób
+- napisaæ instrukcjê
+- dodaæ rozpoznawanie czy ang czy polskie s³ówka
+- END button zaprogramowaæ
+- LOAD GAME zaprogramowaæ (???)
