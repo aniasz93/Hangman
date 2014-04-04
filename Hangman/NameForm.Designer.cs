@@ -75,6 +75,7 @@
             this.nameTB.Name = "nameTB";
             this.nameTB.Size = new System.Drawing.Size(114, 22);
             this.nameTB.TabIndex = 2;
+            this.nameTB.Leave += new System.EventHandler(this.nameTB_Leave);
             // 
             // label3
             // 
@@ -94,6 +95,7 @@
             this.ageTB.Name = "ageTB";
             this.ageTB.Size = new System.Drawing.Size(28, 22);
             this.ageTB.TabIndex = 5;
+            this.ageTB.Leave += new System.EventHandler(this.ageTB_Leave);
             // 
             // sexGB
             // 

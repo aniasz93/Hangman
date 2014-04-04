@@ -69,33 +69,8 @@ namespace Hangman
         private void okBtn_Click(object sender, EventArgs e)
         {
             // check if there is a value in name text box
-            bool isName = false;
             name = nameTB.Text;
-            
-            if (name == "")
-            {
-                isName = false;
-                MessageBox.Show("You must fill in name text box.");
-            }
-            else
-            {
-                isName = true;
-            }
-
-            // check if there is a value in age text box
-            int outputValue = 0;
-            bool isAge = false;
-
-            isAge = int.TryParse(ageTB.Text, out outputValue);
-
-            if (isAge)
-            {
-                age = int.Parse(ageTB.Text);
-            }
-            else
-            {
-                MessageBox.Show("You must fill in age box.");
-            }
+            age = int.Parse(ageTB.Text);
 
             // checking what sex the player is
             bool isSex = false; 
@@ -144,10 +119,32 @@ namespace Hangman
             }
 
             // check if all boxes are fill in and change form to next
-            if (isName && isAge && isSex && isColor)
+            if (isSex && isColor)
             {
                 this.Hide();
                 gameOptionsForm.ShowDialog();
+            }
+        }
+
+        #endregion
+
+        #region Events
+
+        private void nameTB_Leave(object sender, EventArgs e)
+        {
+            if (nameTB.Text == "")
+            {
+                MessageBox.Show("You must fill in name text box.");
+                nameTB.Focus();
+            }
+        }
+
+        private void ageTB_Leave(object sender, EventArgs e)
+        {
+            if (ageTB.Text == "")
+            {
+                MessageBox.Show("You must fill in age text box.");
+                ageTB.Focus();
             }
         }
 

@@ -23,6 +23,9 @@ namespace Hangman
 
         List<string> letters = new List<string>();
 
+        private string name = "";
+        private string fileName = "";
+
         // set stopwatch
         private static System.Timers.Timer sec = null;
         private static DateTime time = new DateTime();
@@ -34,6 +37,16 @@ namespace Hangman
         public GameForm()
         {
             InitializeComponent();
+
+            // stopwatch
+            if (sec == null)
+            {
+                sec = new System.Timers.Timer(1000);
+                sec.SynchronizingObject = this;
+                sec.Elapsed += new System.Timers.ElapsedEventHandler(SecTick);
+            }
+
+            sec.Start();
         }
 
         #endregion
@@ -42,7 +55,6 @@ namespace Hangman
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            string name = "";
             string letter = letterTB.Text;
             letter.ToLower();
 
@@ -70,29 +82,18 @@ namespace Hangman
             }
 
             // check whether the game is over
-            if (word.IsGuessed(hiddenWord))
-            {
-                name = NameForm.Name;
-                endTime = timeLabel.Text;
-                string fileName = @"D:\Projekty\Hangman\Rankings\" + GameOptionsForm.Difficulty + "Rank.txt";
+            CheckIfGameIsOver();
+        }
 
-                file.WriteToFile(fileName, name, endTime, category);
-
-                MessageBox.Show(name + ", you WIN!\n You did it in: " + endTime);
-            }
+        private void endBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void GameForm_Load(object sender, EventArgs e)
         {
-            // stopwatch
-            if (sec == null)
-            {
-                sec = new System.Timers.Timer(1000);
-                sec.SynchronizingObject = this;
-                sec.Elapsed += new System.Timers.ElapsedEventHandler(SecTick);
-            }
-
-            sec.Start();
+            name = NameForm.Name;
+            fileName = @"D:\Projekty\Hangman\Rankings\" + GameOptionsForm.Difficulty + "Rank.txt";
 
             // name choosen category
             category = categoryLabel.Text = GameOptionsForm.Category;
@@ -113,6 +114,30 @@ namespace Hangman
         {
             time = time.AddMilliseconds(((System.Timers.Timer)sender).Interval);
             this.timeLabel.Text = time.ToLongTimeString();
+        }
+
+        private void CheckIfGameIsOver()
+        {
+            if (word.IsGuessed(hiddenWord))
+            {
+                if (sec == null)
+                {
+                    sec = new System.Timers.Timer(1000);
+                    sec.SynchronizingObject = this;
+                    sec.Elapsed += new System.Timers.ElapsedEventHandler(SecTick);
+                }
+
+                sec.Stop();
+
+                endTime = timeLabel.Text;
+                file.WriteToFile(fileName, name, endTime, category);
+
+                MessageBox.Show(name + ", you WIN!\n You did it in: " + endTime);
+                letters.Clear();
+                usedLetterLabel.Text = "";
+                sec = null;
+                this.Close();
+            }
         }
 
         #endregion

@@ -138,6 +138,7 @@
             this.endBtn.TabIndex = 9;
             this.endBtn.Text = "END";
             this.endBtn.UseVisualStyleBackColor = true;
+            this.endBtn.Click += new System.EventHandler(this.endBtn_Click);
             // 
             // guessingWordLabel
             // 
@@ -167,7 +168,7 @@
             this.Controls.Add(this.label1);
             this.Name = "GameForm";
             this.Text = "GameForm";
-            this.Load += new System.EventHandler(this.GameForm_Load);
+            this.Activated += new System.EventHandler(this.GameForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
