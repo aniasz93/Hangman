@@ -37,16 +37,6 @@ namespace Hangman
         public GameForm()
         {
             InitializeComponent();
-
-            // stopwatch
-            if (sec == null)
-            {
-                sec = new System.Timers.Timer(1000);
-                sec.SynchronizingObject = this;
-                sec.Elapsed += new System.Timers.ElapsedEventHandler(SecTick);
-            }
-
-            sec.Start();
         }
 
         #endregion
@@ -103,6 +93,11 @@ namespace Hangman
 
             // hide word
             guessingWordLabel.Text = hiddenWord = word.HideWord(wordToGuess);
+
+            // stopwatch
+            Stopwatch();
+
+            sec.Start();
         }
 
         #endregion
@@ -116,17 +111,21 @@ namespace Hangman
             this.timeLabel.Text = time.ToLongTimeString();
         }
 
+        private void Stopwatch()
+        {
+            if (sec == null)
+            {
+                sec = new System.Timers.Timer(1000);
+                sec.SynchronizingObject = this;
+                sec.Elapsed += new System.Timers.ElapsedEventHandler(SecTick);
+            }
+        }
+
         private void CheckIfGameIsOver()
         {
             if (word.IsGuessed(hiddenWord))
             {
-                if (sec == null)
-                {
-                    sec = new System.Timers.Timer(1000);
-                    sec.SynchronizingObject = this;
-                    sec.Elapsed += new System.Timers.ElapsedEventHandler(SecTick);
-                }
-
+                Stopwatch();
                 sec.Stop();
 
                 endTime = timeLabel.Text;
@@ -135,7 +134,7 @@ namespace Hangman
                 MessageBox.Show(name + ", you WIN!\n You did it in: " + endTime);
                 letters.Clear();
                 usedLetterLabel.Text = "";
-                sec = null;
+                letterTB.Text = "";
                 this.Close();
             }
         }
