@@ -8,7 +8,7 @@ namespace Hangman
 {
     class Word
     {
-        #region Methods
+        #region Methods public
 
         // checking if letter was used already
         public bool IsLetterUsedAlready(List<string> letters, string letter)
@@ -112,37 +112,19 @@ namespace Hangman
                 {
                     word = word.Replace(word[i], '?');
                 }
-                else
-                {
-
-                }
             }
 
             return word;
         }
 
         // discovery of letters
-        public string DiscoveryLetters(string hiddenWord, string wordToGuess, string letter)
+        public string DiscoverLetters(string hiddenWord, string wordToGuess, string letter)
         {
             string newWord = "";
             List<int> placesOfLetter = new List<int>();
+            placesOfLetter = AddPlacesOfLetterOccuranceToList(wordToGuess, letter);
 
-            // add places where the letter is to the list, when the letter isn't on the place, -1 is added to the list
-            int i = 0;
-            while (i < wordToGuess.Count())
-            {
-                if (wordToGuess.Substring(i, 1) == letter)
-                {
-                    placesOfLetter.Add(i);
-                }
-                else
-                {
-                    placesOfLetter.Add(-1);
-                }
-                i++;
-            }
-
-            // the word is "copied" to new word with changed "?" with the letter if  the one was found
+            // the word is "copied" to new word with changed "?" with the letter if the one was found
             for (int j = 0; j < wordToGuess.Count(); j++)
             {
                 if (j != placesOfLetter[j])
@@ -169,6 +151,77 @@ namespace Hangman
                 }
             }
             return true;
+        }
+        
+        // check which difficulty user have choosen and whichever discovers letters by function call
+        public string DiscoverLetterByDifficulty(string word, string hiddenWord, string diff)
+        {
+            int numbOfLetters = word.Count();
+            int amount = 0;
+
+            switch (diff)
+            {
+                case "Easy":
+                    amount = 3;
+                    break;
+
+                case "Medium":
+                    amount = 1;
+                    break;
+
+                default:
+                    amount = 0;
+                    break;
+            }
+
+            int n;          
+            Random rand = new Random();
+
+            if (amount == 1)
+            {
+                n = rand.Next(numbOfLetters);
+                hiddenWord = DiscoverLetters(hiddenWord, word, word[n].ToString());
+            }
+            else if (amount > 1) // I don't know how to check if the letter wasn't draw earlier ;/ so sometimes it shows only 1 or 2 various letters
+            {
+                int i = 0;
+
+                do
+                {
+                    n = rand.Next(numbOfLetters);
+                    hiddenWord = DiscoverLetters(hiddenWord, word, word[n].ToString());
+                    i++;
+                } while(i < amount);
+            }
+
+            return hiddenWord;
+        }
+
+        #endregion
+
+        #region Methods private
+
+        // add places where the letter is to the list, when the letter isn't on the place, -1 is added to the list
+        private List<int> AddPlacesOfLetterOccuranceToList(string wordToGuess, string letter)
+        {
+            List<int> placesOfLetter = new List<int>();
+
+            
+            int i = 0;
+            while (i < wordToGuess.Count())
+            {
+                if (wordToGuess.Substring(i, 1) == letter)
+                {
+                    placesOfLetter.Add(i);
+                }
+                else
+                {
+                    placesOfLetter.Add(-1);
+                }
+                i++;
+            }
+
+            return placesOfLetter;
         }
 
         #endregion

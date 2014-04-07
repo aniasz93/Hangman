@@ -11,6 +11,8 @@ namespace Hangman
 {
     public partial class GameForm : Form
     {
+        private const int TRIALS = 9;
+
         #region Variables
 
         Word word = new Word();
@@ -20,6 +22,8 @@ namespace Hangman
         private string hiddenWord = "";
         private string endTime = "";
         private string category = "";
+        private string difficulty = "";
+        private int badLetters = 0;
 
         List<string> letters = new List<string>();
 
@@ -45,40 +49,19 @@ namespace Hangman
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            string letter = letterTB.Text;
-            letter.ToLower();
-
-            bool isLetterUsed = word.IsLetterUsedAlready(letters, letter);
-            bool isLetterInWord = false;
-
-            letters.Add(letter);
-            
-            // check if letter was used already
-            if (!isLetterUsed)
-            {
-                isLetterInWord = word.IsLetterUsedInWord(wordToGuess, letter);
-
-                // check if letter is in word
-                if (isLetterInWord)
-                {
-                    hiddenWord = word.DiscoveryLetters(hiddenWord, wordToGuess, letter);
-                }
-                else
-                {
-                    usedLetterLabel.Text += letter + ' ';
-                }
-
-                guessingWordLabel.Text = hiddenWord;
-            }
-
-            // check whether the game is over
-            CheckIfGameIsOver();
+            Game();
+            letterTB.Text = "";
         }
 
-        private void endBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        // ******** DOESN'T WORK LIKE I THINK IT SHOULD ********
+        //private void letterTB_TextChanged(object sender, EventArgs e)
+        //{
+        //    if (System.Text.RegularExpressions.Regex.IsMatch("^[a-zA-Z]", letterTB.Text))
+        //    {
+        //        MessageBox.Show("This textbox accepts only alphabetical characters");
+        //        letterTB.Text = "";
+        //    }
+        //}
 
         private void GameForm_Load(object sender, EventArgs e)
         {
@@ -92,7 +75,11 @@ namespace Hangman
             wordToGuess = word.DrawWord(category);
 
             // hide word
-            guessingWordLabel.Text = hiddenWord = word.HideWord(wordToGuess);
+            hiddenWord = word.HideWord(wordToGuess);
+
+            // check difficulty
+            difficulty = GameOptionsForm.Difficulty;
+            guessingWordLabel.Text = hiddenWord = word.DiscoverLetterByDifficulty(wordToGuess, hiddenWord, difficulty);
 
             // stopwatch
             Stopwatch();
@@ -100,9 +87,54 @@ namespace Hangman
             sec.Start();
         }
 
+        private void endBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         #endregion
 
         #region Methods
+
+        // enter the letters
+        private void Game()
+        {
+            string letter = letterTB.Text;
+            letter.ToLower();
+
+            bool isLetterUsed = word.IsLetterUsedAlready(letters, letter);
+            bool isLetterInWord = false;
+
+            letters.Add(letter);
+
+            // check if letter was used already
+            if (!isLetterUsed)
+            {
+                isLetterInWord = word.IsLetterUsedInWord(wordToGuess, letter);
+
+                // check if letter is in word
+                if (isLetterInWord)
+                {
+                    hiddenWord = word.DiscoverLetters(hiddenWord, wordToGuess, letter);
+                }
+                else
+                {
+                    usedLetterLabel.Text += letter + ' ';
+                    badLetters++;
+
+                    // check if player hasn't used all trials
+                    if (badLetters > TRIALS - 1)
+                    {
+                        PlayerLoose();
+                    }
+                }
+
+                guessingWordLabel.Text = hiddenWord;
+            }
+
+            // check whether the game is over
+            CheckIfPlayerWin();
+        }
 
         // stopwatch ticking
         private void SecTick(object sender, System.Timers.ElapsedEventArgs e)
@@ -121,7 +153,8 @@ namespace Hangman
             }
         }
 
-        private void CheckIfGameIsOver()
+        // checking if all of the letters was guessed
+        private void CheckIfPlayerWin()
         {
             if (word.IsGuessed(hiddenWord))
             {
@@ -137,6 +170,18 @@ namespace Hangman
                 letterTB.Text = "";
                 this.Close();
             }
+        }
+
+        private void PlayerLoose()
+        {
+            Stopwatch();
+            sec.Stop();
+
+            MessageBox.Show(name + ", unfortunately you LOOSE!\n Looking expresion was: " + wordToGuess.ToUpper());
+            letters.Clear();
+            usedLetterLabel.Text = "";
+            letterTB.Text = "";
+            this.Close();
         }
 
         #endregion
