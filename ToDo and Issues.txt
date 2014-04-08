@@ -1,9 +1,21 @@
-- napisaæ instrukcjê
-- dodaæ rozpoznawanie czy ang czy polskie s³ówka
-- ¿eby nie da³o siê liczb wprowadzaæ
+ToDo:
+- napisaÄ‡ instrukcjÄ™
+- dodaÄ‡ rozpoznawanie czy ang czy polskie sÅ‚Ã³wka
+- Å¼eby nie daÅ‚o siÄ™ liczb wprowadzaÄ‡
+- pozycja wszystkich form w jednym miejscu
+- dodaÄ‡ opcjÄ™ wpisywania caÅ‚ego odgadnietego wyrazu,
+- zmiana koloru formy gry po wybraniu ulubionego 
+koloru,
+- usunÄ…Ä‡ niepotrzebne opcje gry i poznania gracza.
 
 
 Problemy:
-- jak zrobiæ, ¿eby w funkcji DiscoverLetterByDifficulty() w klasie Word, przy losowaniu liter do odkrycia, nie powtarza³y siê literki wylosowane
-- jak zrobiæ, ¿eby czas siê zerowa³ przy nowym rozpoczêciu gry
-- jak zrobiæ wprowadzanie tylko literek
+- jak zrobiÄ‡, Å¼eby w funkcji 
+DiscoverLetterByDifficulty() w klasie Word, przy 
+losowaniu liter do odkrycia, nie powtarzaÅ‚y siÄ™ 
+literki wylosowane
+
+- jak zrobiÄ‡, Å¼eby czas siÄ™ zerowaÅ‚ przy nowym 
+rozpoczÄ™ciu gry
+
+- jak zrobiÄ‡ wprowadzanie tylko literek
