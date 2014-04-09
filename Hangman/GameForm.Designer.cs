@@ -79,6 +79,7 @@
             this.letterTB.Name = "letterTB";
             this.letterTB.Size = new System.Drawing.Size(35, 26);
             this.letterTB.TabIndex = 3;
+            this.letterTB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.letterTB_KeyDown);
             // 
             // label3
             // 

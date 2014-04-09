@@ -1,6 +1,14 @@
+ToDo:
+- akceptowanie enterem bo coœ popsu³am xD
 - napisaæ instrukcjê
 - dodaæ rozpoznawanie czy ang czy polskie s³ówka
 - ¿eby nie da³o siê liczb wprowadzaæ
+- pozycja wszystkich form w jednym miejscu
+- dodaæ opcjê wpisywania ca³ego odgadnietego wyrazu,
+- zmiana koloru formy gry po wybraniu ulubionego koloru,
+- usun¹æ niepotrzebne opcje gry i poznania gracza,
+- dodaæ jakieœ dŸwiêki (np przy wygranej/przegranej),
+
 
 
 Problemy:

@@ -53,6 +53,16 @@ namespace Hangman
             letterTB.Text = "";
         }
 
+        private void letterTB_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                Game();
+                letterTB.Text = "";
+                //ActiveForm.AcceptButton = okBtn;
+            }
+        }
+
         // ******** DOESN'T WORK LIKE I THINK IT SHOULD ********
         //private void letterTB_TextChanged(object sender, EventArgs e)
         //{
