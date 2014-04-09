@@ -1,34 +1,17 @@
 ToDo:
-<<<<<<< HEAD
-- akceptowanie enterem bo coœ popsu³am xD
-- napisaæ instrukcjê
-- dodaæ rozpoznawanie czy ang czy polskie s³ówka
-- ¿eby nie da³o siê liczb wprowadzaæ
+- napisaï¿½ instrukcjï¿½
+- dodaï¿½ rozpoznawanie czy ang czy polskie sï¿½ï¿½wka
+- ï¿½eby nie daï¿½o siï¿½ liczb wprowadzaï¿½
 - pozycja wszystkich form w jednym miejscu
-- dodaæ opcjê wpisywania ca³ego odgadnietego wyrazu,
+- dodaï¿½ opcjï¿½ wpisywania caï¿½ego odgadnietego wyrazu,
 - zmiana koloru formy gry po wybraniu ulubionego koloru,
-- usun¹æ niepotrzebne opcje gry i poznania gracza,
-- dodaæ jakieœ dŸwiêki (np przy wygranej/przegranej),
+- usunï¿½ï¿½ niepotrzebne opcje gry i poznania gracza,
+- dodaï¿½ jakieï¿½ dï¿½wiï¿½ki (np przy wygranej/przegranej),
 
-=======
-- napisaÄ‡ instrukcjÄ™
-- dodaÄ‡ rozpoznawanie czy ang czy polskie sÅ‚Ã³wka
-- Å¼eby nie daÅ‚o siÄ™ liczb wprowadzaÄ‡
-- pozycja wszystkich form w jednym miejscu
-- dodaÄ‡ opcjÄ™ wpisywania caÅ‚ego odgadnietego wyrazu,
-- zmiana koloru formy gry po wybraniu ulubionego 
-koloru,
-- usunÄ…Ä‡ niepotrzebne opcje gry i poznania gracza.
->>>>>>> a617b011c5186739836454702e9efc66b1c8de89
 
 
 Problemy:
-- jak zrobiÄ‡, Å¼eby w funkcji 
-DiscoverLetterByDifficulty() w klasie Word, przy 
-losowaniu liter do odkrycia, nie powtarzaÅ‚y siÄ™ 
-literki wylosowane
-
-- jak zrobiÄ‡, Å¼eby czas siÄ™ zerowaÅ‚ przy nowym 
-rozpoczÄ™ciu gry
-
+- jak zrobiÄ‡, Å¼eby w funkcji DiscoverLetterByDifficulty() w klasie Word, przy losowaniu liter do odkrycia,
+nie powtarzaÅ‚y siÄ™ literki wylosowane
+- jak zrobiÄ‡, Å¼eby czas siÄ™ zerowaÅ‚ przy nowym rozpoczÄ™ciu gry
 - jak zrobiÄ‡ wprowadzanie tylko literek
