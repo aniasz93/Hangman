@@ -15,7 +15,7 @@ namespace Hangman
 
         GameForm gameForm = new GameForm();
 
-        private int lang = 0;
+        private static string lang = "";
         private static string category = "";
         private static string difficulty = "";
 
@@ -23,7 +23,7 @@ namespace Hangman
 
         #region Properties
 
-        public int Language
+        public static string Language
         {
             get { return lang; }
             set { lang = value; }
@@ -67,12 +67,12 @@ namespace Hangman
             if (polishRadioBtn.Checked)
             {
                 isLang = true;
-                lang = 0;
+                lang = "PL";
             }
             else if (englishRadioBtn.Checked)
             {
                 isLang = true;
-                lang = 1;
+                lang = "ENG";
             }
             else
             {

@@ -1,0 +1,5 @@
+Dodawanie
+Odejmowanie
+Mno¿enie
+Dzielenie
+Kwadrat

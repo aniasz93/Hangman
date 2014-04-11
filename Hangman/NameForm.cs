@@ -17,8 +17,7 @@ namespace Hangman
 
         private static string name = "";
         private int age = 0;
-        private string sex = "";
-        private int color;
+        private static string color = "";
 
         #endregion
 
@@ -36,13 +35,7 @@ namespace Hangman
             set { age = value; }
         }
 
-        public string Sex
-        {
-            get { return sex; }
-            set { sex = value; }
-        }
-
-        public int Color
+        public static string Color
         {
             get { return color; }
             set { color = value; }
@@ -72,58 +65,40 @@ namespace Hangman
             name = nameTB.Text;
             age = int.Parse(ageTB.Text);
 
-            // checking what sex the player is
-            bool isSex = false; 
-
-            if (girlRadioBtn.Checked)
-            {
-                isSex = true;
-                sex = girlRadioBtn.Text;
-            }
-            else if (boyRadioBtn.Checked)
-            {
-                isSex = true;
-                sex = boyRadioBtn.Text;
-            }
-            else
-            {
-                MessageBox.Show("You must choose your sex.");
-            }
-
             // checking what color is favourite one
             bool isColor = false;
 
             if (blueRadioBtn.Checked)
             {
                 isColor = true;
-                color = 0;
+                color = blueRadioBtn.Text;
             }
             else if (redRadioBtn.Checked)
             {
                 isColor = true;
-                color = 1;
+                color = redRadioBtn.Text;
             }
             else if (yellowRadioBtn.Checked)
             {
                 isColor = true;
-                color = 2;
+                color = yellowRadioBtn.Text;
             }
             else if (greenRadioBtn.Checked)
             {
                 isColor = true;
-                color = 3;
+                color = greenRadioBtn.Text;
             }
-            else
-            {
-                MessageBox.Show("You must choose your favourite color.");
-            }
+            //else
+            //{
+            //    MessageBox.Show("You must choose your favourite color.");
+            //}
 
             // check if all boxes are fill in and change form to next
-            if (isSex && isColor)
-            {
+            //if (isColor)
+            //{
                 this.Hide();
                 gameOptionsForm.ShowDialog();
-            }
+            //}
         }
 
         #endregion
@@ -149,5 +124,6 @@ namespace Hangman
         }
 
         #endregion
+
     }
 }

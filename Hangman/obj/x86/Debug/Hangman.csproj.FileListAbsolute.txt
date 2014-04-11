@@ -24,3 +24,4 @@ D:\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.InstrForm.resources
 D:\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.Properties.Resources.resources
 D:\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.RankForm.resources
 D:\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.csproj.GenerateResource.Cache
+D:\Projekty\Hangman\Hangman\obj\x86\Debug\Hangman.TypeForm.resources

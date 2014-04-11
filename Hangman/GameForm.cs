@@ -15,13 +15,16 @@ namespace Hangman
 
         #region Variables
 
+        TypeForm typeForm = new TypeForm();
         Word word = new Word();
         FilesOperations file = new FilesOperations();
 
+        private string favouriteColor = "";
         private string wordToGuess = "";
         private string hiddenWord = "";
         private string endTime = "";
         private string category = "";
+        private string language = "";
         private string difficulty = "";
         private int badLetters = 0;
 
@@ -63,6 +66,11 @@ namespace Hangman
             }
         }
 
+        private void typeBtn_Click(object sender, EventArgs e)
+        {
+            typeForm.ShowDialog();
+        }
+
         // ******** DOESN'T WORK LIKE I THINK IT SHOULD ********
         //private void letterTB_TextChanged(object sender, EventArgs e)
         //{
@@ -75,22 +83,27 @@ namespace Hangman
 
         private void GameForm_Load(object sender, EventArgs e)
         {
-            name = NameForm.Name;
-            fileName = @"D:\Projekty\Hangman\Rankings\" + GameOptionsForm.Difficulty + "Rank.txt";
+            //SetBackgroundColor();
 
-            // name choosen category
-            category = categoryLabel.Text = GameOptionsForm.Category;
+            //name = NameForm.Name;
+            //fileName = @"D:\Projekty\Hangman\Rankings\" + GameOptionsForm.Difficulty + "Rank.txt";
 
-            // draw word
-            wordToGuess = word.DrawWord(category);
+            //// name choosen category
+            //category = categoryLabel.Text = GameOptionsForm.Category;
 
-            // hide word
-            hiddenWord = word.HideWord(wordToGuess);
+            //// choosen language od the word
+            //language = GameOptionsForm.Language;
 
-            // check difficulty
-            difficulty = GameOptionsForm.Difficulty;
-            guessingWordLabel.Text = hiddenWord = word.DiscoverLetterByDifficulty(wordToGuess, hiddenWord, difficulty);
+            //// draw word
+            //wordToGuess = word.DrawWord(category, language);
 
+            //// hide word
+            //hiddenWord = word.HideWord(wordToGuess);
+
+            //// check difficulty
+            //difficulty = GameOptionsForm.Difficulty;
+            //guessingWordLabel.Text = hiddenWord = word.DiscoverLetterByDifficulty(wordToGuess, hiddenWord, difficulty);
+            Load();
             // stopwatch
             Stopwatch();
 
@@ -105,6 +118,31 @@ namespace Hangman
         #endregion
 
         #region Methods
+
+        // load
+        private void Load()
+        {
+            SetBackgroundColor();
+
+            name = NameForm.Name;
+            fileName = @"D:\Projekty\Hangman\Rankings\" + GameOptionsForm.Difficulty + "Rank.txt";
+
+            // name choosen category
+            category = categoryLabel.Text = GameOptionsForm.Category;
+
+            // choosen language od the word
+            language = GameOptionsForm.Language;
+
+            // draw word
+            wordToGuess = word.DrawWord(category, language);
+
+            // hide word
+            hiddenWord = word.HideWord(wordToGuess);
+
+            // check difficulty
+            difficulty = GameOptionsForm.Difficulty;
+            guessingWordLabel.Text = hiddenWord = word.DiscoverLetterByDifficulty(wordToGuess, hiddenWord, difficulty);
+        }
 
         // enter the letters
         private void Game()
@@ -178,6 +216,7 @@ namespace Hangman
                 letters.Clear();
                 usedLetterLabel.Text = "";
                 letterTB.Text = "";
+                badLetters = 0;
                 this.Close();
             }
         }
@@ -189,9 +228,38 @@ namespace Hangman
 
             MessageBox.Show(name + ", unfortunately you LOOSE!\n Looking expresion was: " + wordToGuess.ToUpper());
             letters.Clear();
+            wordToGuess = "";
             usedLetterLabel.Text = "";
             letterTB.Text = "";
+            badLetters = 0;
             this.Close();
+        }
+
+        // set background color by the favourite color
+        private void SetBackgroundColor()
+        {
+            favouriteColor = NameForm.Color;
+            string backgroundColor = "";
+
+            switch (favouriteColor){
+                case "red":
+                    backgroundColor = "#FFB1AB";
+                    break;
+                case "blue":
+                    backgroundColor = "#B7CBFF";
+                    break;
+                case "yellow":
+                    backgroundColor = "#FFFAC3";
+                    break;
+                case "green":
+                    backgroundColor = "#D0FFC5";
+                    break;
+                default:
+                    break;
+            }
+
+            this.BackColor = ColorTranslator.FromHtml(backgroundColor);
+
         }
 
         #endregion

@@ -33,9 +33,6 @@
             this.nameTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ageTB = new System.Windows.Forms.MaskedTextBox();
-            this.sexGB = new System.Windows.Forms.GroupBox();
-            this.boyRadioBtn = new System.Windows.Forms.RadioButton();
-            this.girlRadioBtn = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.greenRadioBtn = new System.Windows.Forms.RadioButton();
@@ -44,7 +41,6 @@
             this.blueRadioBtn = new System.Windows.Forms.RadioButton();
             this.returnBtn = new System.Windows.Forms.Button();
             this.okBtn = new System.Windows.Forms.Button();
-            this.sexGB.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,7 +77,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(48, 110);
+            this.label3.Location = new System.Drawing.Point(48, 123);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 16);
             this.label3.TabIndex = 3;
@@ -90,52 +86,18 @@
             // ageTB
             // 
             this.ageTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ageTB.Location = new System.Drawing.Point(90, 107);
+            this.ageTB.Location = new System.Drawing.Point(90, 120);
             this.ageTB.Mask = "00";
             this.ageTB.Name = "ageTB";
             this.ageTB.Size = new System.Drawing.Size(28, 22);
             this.ageTB.TabIndex = 5;
             this.ageTB.Leave += new System.EventHandler(this.ageTB_Leave);
             // 
-            // sexGB
-            // 
-            this.sexGB.Controls.Add(this.boyRadioBtn);
-            this.sexGB.Controls.Add(this.girlRadioBtn);
-            this.sexGB.Location = new System.Drawing.Point(90, 133);
-            this.sexGB.Name = "sexGB";
-            this.sexGB.Size = new System.Drawing.Size(58, 57);
-            this.sexGB.TabIndex = 6;
-            this.sexGB.TabStop = false;
-            // 
-            // boyRadioBtn
-            // 
-            this.boyRadioBtn.AutoSize = true;
-            this.boyRadioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.boyRadioBtn.Location = new System.Drawing.Point(7, 34);
-            this.boyRadioBtn.Name = "boyRadioBtn";
-            this.boyRadioBtn.Size = new System.Drawing.Size(49, 20);
-            this.boyRadioBtn.TabIndex = 1;
-            this.boyRadioBtn.TabStop = true;
-            this.boyRadioBtn.Text = "boy";
-            this.boyRadioBtn.UseVisualStyleBackColor = true;
-            // 
-            // girlRadioBtn
-            // 
-            this.girlRadioBtn.AutoSize = true;
-            this.girlRadioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.girlRadioBtn.Location = new System.Drawing.Point(6, 10);
-            this.girlRadioBtn.Name = "girlRadioBtn";
-            this.girlRadioBtn.Size = new System.Drawing.Size(44, 20);
-            this.girlRadioBtn.TabIndex = 0;
-            this.girlRadioBtn.TabStop = true;
-            this.girlRadioBtn.Text = "girl";
-            this.girlRadioBtn.UseVisualStyleBackColor = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(20, 205);
+            this.label4.Location = new System.Drawing.Point(20, 170);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 32);
             this.label4.TabIndex = 7;
@@ -148,7 +110,7 @@
             this.groupBox2.Controls.Add(this.redRadioBtn);
             this.groupBox2.Controls.Add(this.blueRadioBtn);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox2.Location = new System.Drawing.Point(90, 196);
+            this.groupBox2.Location = new System.Drawing.Point(90, 161);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(100, 100);
             this.groupBox2.TabIndex = 8;
@@ -179,7 +141,7 @@
             // redRadioBtn
             // 
             this.redRadioBtn.AutoSize = true;
-            this.redRadioBtn.Location = new System.Drawing.Point(6, 32);
+            this.redRadioBtn.Location = new System.Drawing.Point(6, 31);
             this.redRadioBtn.Name = "redRadioBtn";
             this.redRadioBtn.Size = new System.Drawing.Size(46, 20);
             this.redRadioBtn.TabIndex = 1;
@@ -201,7 +163,7 @@
             // returnBtn
             // 
             this.returnBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.returnBtn.Location = new System.Drawing.Point(149, 311);
+            this.returnBtn.Location = new System.Drawing.Point(166, 289);
             this.returnBtn.Name = "returnBtn";
             this.returnBtn.Size = new System.Drawing.Size(95, 45);
             this.returnBtn.TabIndex = 7;
@@ -212,7 +174,7 @@
             // okBtn
             // 
             this.okBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.okBtn.Location = new System.Drawing.Point(35, 311);
+            this.okBtn.Location = new System.Drawing.Point(35, 289);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(95, 45);
             this.okBtn.TabIndex = 9;
@@ -229,15 +191,12 @@
             this.Controls.Add(this.returnBtn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.sexGB);
             this.Controls.Add(this.ageTB);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nameTB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Text = "Name Form";
-            this.sexGB.ResumeLayout(false);
-            this.sexGB.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -252,9 +211,6 @@
         private System.Windows.Forms.TextBox nameTB;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox ageTB;
-        private System.Windows.Forms.GroupBox sexGB;
-        private System.Windows.Forms.RadioButton boyRadioBtn;
-        private System.Windows.Forms.RadioButton girlRadioBtn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton greenRadioBtn;

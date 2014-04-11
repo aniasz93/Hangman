@@ -53,9 +53,9 @@ namespace Hangman
         }
 
         // drawing letter to guessing
-        public string DrawWord(string cat)
+        public string DrawWord(string cat, string lang)
         {
-            string fileName = @"D:\Projekty\Hangman\Categories\" + cat + ".txt";
+            string fileName = @"D:\Projekty\Hangman\Categories\" + cat + " " + lang + ".txt";
             List<string> words = new List<string>();
             string word = "";
             Random rand = new Random();

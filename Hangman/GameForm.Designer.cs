@@ -39,6 +39,7 @@
             this.timeLabel = new System.Windows.Forms.Label();
             this.endBtn = new System.Windows.Forms.Button();
             this.guessingWordLabel = new System.Windows.Forms.Label();
+            this.typeBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -151,11 +152,24 @@
             this.guessingWordLabel.TabIndex = 10;
             this.guessingWordLabel.Text = "label5";
             // 
+            // typeBtn
+            // 
+            this.typeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.typeBtn.Location = new System.Drawing.Point(27, 243);
+            this.typeBtn.Name = "typeBtn";
+            this.typeBtn.Size = new System.Drawing.Size(97, 43);
+            this.typeBtn.TabIndex = 11;
+            this.typeBtn.Text = "TYPE WORD";
+            this.typeBtn.UseVisualStyleBackColor = true;
+            this.typeBtn.Click += new System.EventHandler(this.typeBtn_Click);
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(284, 362);
+            this.Controls.Add(this.typeBtn);
             this.Controls.Add(this.guessingWordLabel);
             this.Controls.Add(this.endBtn);
             this.Controls.Add(this.timeLabel);
@@ -188,5 +202,6 @@
         private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Button endBtn;
         private System.Windows.Forms.Label guessingWordLabel;
+        private System.Windows.Forms.Button typeBtn;
     }
 }
