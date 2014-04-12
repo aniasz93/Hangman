@@ -3,8 +3,7 @@ zad z *** przerobic pliki txt na baze danych
 ToDo:
 - napisac instrukcje
 - zeby nie dalo sie liczb wprowadzac przy zgadywaniu literek
-- pozycja wszystkich form w jednym miejscu
-- dodac opcje wpisywania calego odgadnietego wyrazu,
+- pozycja wszystkich form w jednym miejscu,
 - usunac niepotrzebne opcje gry i poznania gracza,
 - dodac jakies dzwieki
 - sortowanie wynikow (mo¿e siê uda 3 najlepsze jakos wyroznic)
@@ -18,5 +17,5 @@ literki wylosowane
 - jak zrobic, zeby czas sie zerowal przy nowym 
 rozpoczeciu gry
 - jak zrobic wprowadzanie tylko literek
-- jak sie kliknie po za forme i z powrotem wroci, to losuje sie nowe slowo - NAPRAWIC
+- jak sie kliknie po za forme i z powrotem wroci, to losuje sie nowe slowo - NAPRAWIC!!!!!
 - polskie literki w slowach

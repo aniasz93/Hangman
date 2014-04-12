@@ -61,6 +61,7 @@
             this.okBtn.TabIndex = 2;
             this.okBtn.Text = "OK";
             this.okBtn.UseVisualStyleBackColor = true;
+            this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
             // cancelBtn
             // 
@@ -84,6 +85,7 @@
             this.Controls.Add(this.label1);
             this.Name = "TypeForm";
             this.Text = "TypeForm";
+            this.Load += new System.EventHandler(this.TypeForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

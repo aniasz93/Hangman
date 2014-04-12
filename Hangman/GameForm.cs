@@ -69,6 +69,11 @@ namespace Hangman
         private void typeBtn_Click(object sender, EventArgs e)
         {
             typeForm.ShowDialog();
+
+            if (TypeForm.IsOKClicked)
+            {
+                CheckIfPlayerTypedRightWord();
+            }
         }
 
         // ******** DOESN'T WORK LIKE I THINK IT SHOULD ********
@@ -181,7 +186,10 @@ namespace Hangman
             }
 
             // check whether the game is over
-            CheckIfPlayerWin();
+            if (word.IsGuessed(hiddenWord))
+            {
+                PlayerWin();
+            }
         }
 
         // stopwatch ticking
@@ -202,23 +210,20 @@ namespace Hangman
         }
 
         // checking if all of the letters was guessed
-        private void CheckIfPlayerWin()
+        private void PlayerWin()
         {
-            if (word.IsGuessed(hiddenWord))
-            {
-                Stopwatch();
-                sec.Stop();
+            Stopwatch();
+            sec.Stop();
 
-                endTime = timeLabel.Text;
-                file.WriteToFile(fileName, name, endTime, category);
+            endTime = timeLabel.Text;
+            file.WriteToFile(fileName, name, endTime, category);
 
-                MessageBox.Show(name + ", you WIN!\n You did it in: " + endTime);
-                letters.Clear();
-                usedLetterLabel.Text = "";
-                letterTB.Text = "";
-                badLetters = 0;
-                this.Close();
-            }
+            MessageBox.Show(name + ", you WIN!\n You did it in: " + endTime);
+            letters.Clear();
+            usedLetterLabel.Text = "";
+            letterTB.Text = "";
+            badLetters = 0;
+            this.Close();
         }
 
         private void PlayerLoose()
@@ -259,7 +264,21 @@ namespace Hangman
             }
 
             this.BackColor = ColorTranslator.FromHtml(backgroundColor);
+        }
 
+        // checking if player typed right word, if so - player is the winner, if not - player looses the game
+        private void CheckIfPlayerTypedRightWord()
+        {
+            string typedWord = TypeForm.TypedWord;
+
+            if (wordToGuess == typedWord)
+            {
+                PlayerWin();
+            }
+            else
+            {
+                PlayerLoose();
+            }
         }
 
         #endregion
